@@ -2,45 +2,45 @@
   <form>
     <div>
       <label>Título de la tarjeta: </label>
-      <input />
+      <input v-model="tituloTarjeta"/>
     </div>
 
     <div>
       <label>Chip SRC: </label>
-      <input />
+      <input v-model="chipSRC"/>
     </div>
 
     <div>
       <label>Número: </label>
-      <input />
+      <input v-model="numero"/>
     </div>
 
     <div>
       <label>Fecha de expiración: </label>
-      <input />
+      <input v-model="fechaExp"/>
     </div>
 
     <div>
       <label>Propietario: </label>
-      <input />
+      <input v-model="propietario"/>
     </div>
 
     <div>
       <label>Tipo de tarjeta SRC: </label>
-      <input />
+      <input v-model="tipoSRC"/>
     </div>
   </form>
 
   <div class="carnet">
-    <h3>Visa Classic Crédito</h3>
-    <img width="40" src="../assets/chip.png" alt="" />
+    <h3>{{ tituloTarjeta }}</h3>
+    <img width="40" :src="chipSRC" alt="" />
     <div>
-      <h2>400 500 600 700</h2>
-      <span>Fecha Exp: <b>01/30</b></span>
+      <h2>{{ numero }}</h2>
+      <span>Fecha Exp: <b>{{ fechaExp }}</b></span>
     </div>
     <footer>
-      <span>William Henry Gates III</span>
-      <img src="../assets/visa.png" width="60" />
+      <span>{{ propietario }}</span>
+      <img :src="tipoSRC" width="60" />
     </footer>
   </div>
 </template>
@@ -48,6 +48,16 @@
 <script>
 export default {
   name: 'TarjetaForm',
+  data(){
+    return {
+      tituloTarjeta: "",
+      chipSRC: "./chip.png",
+      numero: "",
+      fechaExp: "",
+      propietario: "",
+      tipoSRC: "./visa.png",
+    }
+  },
 }
 </script>
 
